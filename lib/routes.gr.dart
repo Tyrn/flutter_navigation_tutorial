@@ -1,227 +1,319 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
 // **************************************************************************
-// AutoRouteGenerator
+// AutoRouterGenerator
 // **************************************************************************
 
-import 'package:auto_route/auto_route.dart' as _i1;
-import 'package:flutter/material.dart' as _i2;
-import 'package:navigation_auto_route_tutorial/group_screens/group_screen.dart'
-    as _i9;
-import 'package:navigation_auto_route_tutorial/group_screens/tab1_screen.dart'
-    as _i10;
-import 'package:navigation_auto_route_tutorial/group_screens/tab2_screen.dart'
-    as _i11;
-import 'package:navigation_auto_route_tutorial/group_screens/tab3_screen.dart'
-    as _i12;
-import 'package:navigation_auto_route_tutorial/login_screens/login_screen.dart'
-    as _i3;
-import 'package:navigation_auto_route_tutorial/login_screens/signup_screen.dart'
-    as _i4;
-import 'package:navigation_auto_route_tutorial/user_screens/user_details_screen.dart'
-    as _i7;
-import 'package:navigation_auto_route_tutorial/user_screens/user_friends_screen.dart'
-    as _i8;
-import 'package:navigation_auto_route_tutorial/user_screens/user_profile_screen.dart'
-    as _i6;
-import 'package:navigation_auto_route_tutorial/user_screens/user_screen.dart'
-    as _i5;
+// ignore_for_file: type=lint
+// coverage:ignore-file
 
-class AppRouter extends _i1.RootStackRouter {
-  AppRouter([_i2.GlobalKey<_i2.NavigatorState>? navigatorKey])
-      : super(navigatorKey);
+// ignore_for_file: no_leading_underscores_for_library_prefixes
+import 'package:auto_route/auto_route.dart' as _i12;
+import 'package:navigation_auto_route_tutorial/group_screens/group_screen.dart'
+    as _i3;
+import 'package:navigation_auto_route_tutorial/group_screens/tab1_screen.dart'
+    as _i4;
+import 'package:navigation_auto_route_tutorial/group_screens/tab2_screen.dart'
+    as _i2;
+import 'package:navigation_auto_route_tutorial/group_screens/tab3_screen.dart'
+    as _i1;
+import 'package:navigation_auto_route_tutorial/login_screens/login_screen.dart'
+    as _i5;
+import 'package:navigation_auto_route_tutorial/login_screens/signup_screen.dart'
+    as _i6;
+import 'package:navigation_auto_route_tutorial/routes.dart' as _i7;
+import 'package:navigation_auto_route_tutorial/user_screens/user_details_screen.dart'
+    as _i11;
+import 'package:navigation_auto_route_tutorial/user_screens/user_friends_screen.dart'
+    as _i9;
+import 'package:navigation_auto_route_tutorial/user_screens/user_profile_screen.dart'
+    as _i8;
+import 'package:navigation_auto_route_tutorial/user_screens/user_screen.dart'
+    as _i10;
+
+abstract class $AppRouter extends _i12.RootStackRouter {
+  $AppRouter({super.navigatorKey});
 
   @override
-  final Map<String, _i1.PageFactory> pagesMap = {
-    LoginScreenRoute.name: (routeData) {
-      return _i1.AdaptivePage<dynamic>(
-          routeData: routeData, child: _i3.LoginScreen());
+  final Map<String, _i12.PageFactory> pagesMap = {
+    Tab3Route.name: (routeData) {
+      return _i12.AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: _i1.Tab3Screen(),
+      );
     },
-    SignupScreenRoute.name: (routeData) {
-      return _i1.AdaptivePage<dynamic>(
-          routeData: routeData, child: _i4.SignupScreen());
+    Tab2Route.name: (routeData) {
+      return _i12.AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: _i2.Tab2Screen(),
+      );
     },
-    UserScreenRoute.name: (routeData) {
-      return _i1.AdaptivePage<dynamic>(
-          routeData: routeData, child: _i5.UserScreen());
+    GroupRoute.name: (routeData) {
+      final pathParams = routeData.inheritedPathParams;
+      final args = routeData.argsAs<GroupRouteArgs>(
+          orElse: () => GroupRouteArgs(id: pathParams.getString('id')));
+      return _i12.AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: _i3.GroupScreen(id: args.id),
+      );
     },
-    UserProfileScreenRoute.name: (routeData) {
-      return _i1.AdaptivePage<dynamic>(
-          routeData: routeData, child: _i6.UserProfileScreen());
+    Tab1Route.name: (routeData) {
+      return _i12.AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: _i4.Tab1Screen(),
+      );
     },
-    UserDetailsScreenRoute.name: (routeData) {
-      return _i1.AdaptivePage<dynamic>(
-          routeData: routeData, child: _i7.UserDetailsScreen());
+    LoginRoute.name: (routeData) {
+      return _i12.AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: _i5.LoginScreen(),
+      );
     },
-    UserFriendsScreenRoute.name: (routeData) {
-      return _i1.AdaptivePage<dynamic>(
-          routeData: routeData, child: _i8.UserFriendsScreen());
-    },
-    GroupScreenRoute.name: (routeData) {
-      var pathParams = routeData.pathParams;
-      final args = routeData.argsAs<GroupScreenRouteArgs>(
-          orElse: () => GroupScreenRouteArgs(id: pathParams.getString('id')));
-      return _i1.AdaptivePage<dynamic>(
-          routeData: routeData, child: _i9.GroupScreen(id: args.id));
+    SignupRoute.name: (routeData) {
+      return _i12.AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: _i6.SignupScreen(),
+      );
     },
     GroupTab1Router.name: (routeData) {
-      return _i1.AdaptivePage<dynamic>(
-          routeData: routeData, child: const _i1.EmptyRouterPage());
+      return _i12.AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: _i7.GroupTab1RouterPage(),
+      );
     },
     GroupTab2Router.name: (routeData) {
-      return _i1.AdaptivePage<dynamic>(
-          routeData: routeData, child: const _i1.EmptyRouterPage());
+      return _i12.AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: _i7.GroupTab2RouterPage(),
+      );
     },
     GroupTab3Router.name: (routeData) {
-      return _i1.AdaptivePage<dynamic>(
-          routeData: routeData, child: const _i1.EmptyRouterPage());
+      return _i12.AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: _i7.GroupTab3RouterPage(),
+      );
     },
-    Tab1ScreenRoute.name: (routeData) {
-      return _i1.AdaptivePage<dynamic>(
-          routeData: routeData, child: _i10.Tab1Screen());
+    UserProfileRoute.name: (routeData) {
+      return _i12.AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: _i8.UserProfileScreen(),
+      );
     },
-    Tab2ScreenRoute.name: (routeData) {
-      return _i1.AdaptivePage<dynamic>(
-          routeData: routeData, child: _i11.Tab2Screen());
+    UserFriendsRoute.name: (routeData) {
+      return _i12.AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: _i9.UserFriendsScreen(),
+      );
     },
-    Tab3ScreenRoute.name: (routeData) {
-      return _i1.AdaptivePage<dynamic>(
-          routeData: routeData, child: _i12.Tab3Screen());
-    }
+    UserRoute.name: (routeData) {
+      return _i12.AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: _i10.UserScreen(),
+      );
+    },
+    UserDetailsRoute.name: (routeData) {
+      return _i12.AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: _i11.UserDetailsScreen(),
+      );
+    },
   };
-
-  @override
-  List<_i1.RouteConfig> get routes => [
-        _i1.RouteConfig('/#redirect',
-            path: '/', redirectTo: '/login', fullMatch: true),
-        _i1.RouteConfig(LoginScreenRoute.name, path: '/login', children: [
-          _i1.RouteConfig('*#redirect',
-              path: '*', redirectTo: '', fullMatch: true)
-        ]),
-        _i1.RouteConfig(SignupScreenRoute.name, path: '/signup', children: [
-          _i1.RouteConfig('*#redirect',
-              path: '*', redirectTo: '', fullMatch: true)
-        ]),
-        _i1.RouteConfig(UserScreenRoute.name, path: '/user', children: [
-          _i1.RouteConfig(UserProfileScreenRoute.name, path: ''),
-          _i1.RouteConfig(UserDetailsScreenRoute.name, path: 'details'),
-          _i1.RouteConfig(UserFriendsScreenRoute.name, path: 'friends'),
-          _i1.RouteConfig(GroupScreenRoute.name, path: 'group/:id', children: [
-            _i1.RouteConfig(GroupTab1Router.name, path: 'tab1', children: [
-              _i1.RouteConfig(Tab1ScreenRoute.name, path: ''),
-              _i1.RouteConfig('*#redirect',
-                  path: '*', redirectTo: '', fullMatch: true)
-            ]),
-            _i1.RouteConfig(GroupTab2Router.name, path: 'tab2', children: [
-              _i1.RouteConfig(Tab2ScreenRoute.name, path: ''),
-              _i1.RouteConfig('*#redirect',
-                  path: '*', redirectTo: '', fullMatch: true)
-            ]),
-            _i1.RouteConfig(GroupTab3Router.name, path: 'tab3', children: [
-              _i1.RouteConfig(Tab3ScreenRoute.name, path: ''),
-              _i1.RouteConfig('*#redirect',
-                  path: '*', redirectTo: '', fullMatch: true)
-            ])
-          ]),
-          _i1.RouteConfig('*#redirect',
-              path: '*', redirectTo: 'profile', fullMatch: true)
-        ]),
-        _i1.RouteConfig('*#redirect',
-            path: '*', redirectTo: '/login', fullMatch: true)
-      ];
 }
 
-class LoginScreenRoute extends _i1.PageRouteInfo {
-  const LoginScreenRoute({List<_i1.PageRouteInfo>? children})
-      : super(name, path: '/login', children: children);
+/// generated route for
+/// [_i1.Tab3Screen]
+class Tab3Route extends _i12.PageRouteInfo<void> {
+  const Tab3Route({List<_i12.PageRouteInfo>? children})
+      : super(
+          Tab3Route.name,
+          initialChildren: children,
+        );
 
-  static const String name = 'LoginScreenRoute';
+  static const String name = 'Tab3Route';
+
+  static const _i12.PageInfo<void> page = _i12.PageInfo<void>(name);
 }
 
-class SignupScreenRoute extends _i1.PageRouteInfo {
-  const SignupScreenRoute({List<_i1.PageRouteInfo>? children})
-      : super(name, path: '/signup', children: children);
+/// generated route for
+/// [_i2.Tab2Screen]
+class Tab2Route extends _i12.PageRouteInfo<void> {
+  const Tab2Route({List<_i12.PageRouteInfo>? children})
+      : super(
+          Tab2Route.name,
+          initialChildren: children,
+        );
 
-  static const String name = 'SignupScreenRoute';
+  static const String name = 'Tab2Route';
+
+  static const _i12.PageInfo<void> page = _i12.PageInfo<void>(name);
 }
 
-class UserScreenRoute extends _i1.PageRouteInfo {
-  const UserScreenRoute({List<_i1.PageRouteInfo>? children})
-      : super(name, path: '/user', children: children);
+/// generated route for
+/// [_i3.GroupScreen]
+class GroupRoute extends _i12.PageRouteInfo<GroupRouteArgs> {
+  GroupRoute({
+    required String id,
+    List<_i12.PageRouteInfo>? children,
+  }) : super(
+          GroupRoute.name,
+          args: GroupRouteArgs(id: id),
+          rawPathParams: {'id': id},
+          initialChildren: children,
+        );
 
-  static const String name = 'UserScreenRoute';
+  static const String name = 'GroupRoute';
+
+  static const _i12.PageInfo<GroupRouteArgs> page =
+      _i12.PageInfo<GroupRouteArgs>(name);
 }
 
-class UserProfileScreenRoute extends _i1.PageRouteInfo {
-  const UserProfileScreenRoute() : super(name, path: '');
-
-  static const String name = 'UserProfileScreenRoute';
-}
-
-class UserDetailsScreenRoute extends _i1.PageRouteInfo {
-  const UserDetailsScreenRoute() : super(name, path: 'details');
-
-  static const String name = 'UserDetailsScreenRoute';
-}
-
-class UserFriendsScreenRoute extends _i1.PageRouteInfo {
-  const UserFriendsScreenRoute() : super(name, path: 'friends');
-
-  static const String name = 'UserFriendsScreenRoute';
-}
-
-class GroupScreenRoute extends _i1.PageRouteInfo<GroupScreenRouteArgs> {
-  GroupScreenRoute({required String id, List<_i1.PageRouteInfo>? children})
-      : super(name,
-            path: 'group/:id',
-            args: GroupScreenRouteArgs(id: id),
-            params: {'id': id},
-            children: children);
-
-  static const String name = 'GroupScreenRoute';
-}
-
-class GroupScreenRouteArgs {
-  const GroupScreenRouteArgs({required this.id});
+class GroupRouteArgs {
+  const GroupRouteArgs({required this.id});
 
   final String id;
+
+  @override
+  String toString() {
+    return 'GroupRouteArgs{id: $id}';
+  }
 }
 
-class GroupTab1Router extends _i1.PageRouteInfo {
-  const GroupTab1Router({List<_i1.PageRouteInfo>? children})
-      : super(name, path: 'tab1', children: children);
+/// generated route for
+/// [_i4.Tab1Screen]
+class Tab1Route extends _i12.PageRouteInfo<void> {
+  const Tab1Route({List<_i12.PageRouteInfo>? children})
+      : super(
+          Tab1Route.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'Tab1Route';
+
+  static const _i12.PageInfo<void> page = _i12.PageInfo<void>(name);
+}
+
+/// generated route for
+/// [_i5.LoginScreen]
+class LoginRoute extends _i12.PageRouteInfo<void> {
+  const LoginRoute({List<_i12.PageRouteInfo>? children})
+      : super(
+          LoginRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'LoginRoute';
+
+  static const _i12.PageInfo<void> page = _i12.PageInfo<void>(name);
+}
+
+/// generated route for
+/// [_i6.SignupScreen]
+class SignupRoute extends _i12.PageRouteInfo<void> {
+  const SignupRoute({List<_i12.PageRouteInfo>? children})
+      : super(
+          SignupRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'SignupRoute';
+
+  static const _i12.PageInfo<void> page = _i12.PageInfo<void>(name);
+}
+
+/// generated route for
+/// [_i7.GroupTab1RouterPage]
+class GroupTab1Router extends _i12.PageRouteInfo<void> {
+  const GroupTab1Router({List<_i12.PageRouteInfo>? children})
+      : super(
+          GroupTab1Router.name,
+          initialChildren: children,
+        );
 
   static const String name = 'GroupTab1Router';
+
+  static const _i12.PageInfo<void> page = _i12.PageInfo<void>(name);
 }
 
-class GroupTab2Router extends _i1.PageRouteInfo {
-  const GroupTab2Router({List<_i1.PageRouteInfo>? children})
-      : super(name, path: 'tab2', children: children);
+/// generated route for
+/// [_i7.GroupTab2RouterPage]
+class GroupTab2Router extends _i12.PageRouteInfo<void> {
+  const GroupTab2Router({List<_i12.PageRouteInfo>? children})
+      : super(
+          GroupTab2Router.name,
+          initialChildren: children,
+        );
 
   static const String name = 'GroupTab2Router';
+
+  static const _i12.PageInfo<void> page = _i12.PageInfo<void>(name);
 }
 
-class GroupTab3Router extends _i1.PageRouteInfo {
-  const GroupTab3Router({List<_i1.PageRouteInfo>? children})
-      : super(name, path: 'tab3', children: children);
+/// generated route for
+/// [_i7.GroupTab3RouterPage]
+class GroupTab3Router extends _i12.PageRouteInfo<void> {
+  const GroupTab3Router({List<_i12.PageRouteInfo>? children})
+      : super(
+          GroupTab3Router.name,
+          initialChildren: children,
+        );
 
   static const String name = 'GroupTab3Router';
+
+  static const _i12.PageInfo<void> page = _i12.PageInfo<void>(name);
 }
 
-class Tab1ScreenRoute extends _i1.PageRouteInfo {
-  const Tab1ScreenRoute() : super(name, path: '');
+/// generated route for
+/// [_i8.UserProfileScreen]
+class UserProfileRoute extends _i12.PageRouteInfo<void> {
+  const UserProfileRoute({List<_i12.PageRouteInfo>? children})
+      : super(
+          UserProfileRoute.name,
+          initialChildren: children,
+        );
 
-  static const String name = 'Tab1ScreenRoute';
+  static const String name = 'UserProfileRoute';
+
+  static const _i12.PageInfo<void> page = _i12.PageInfo<void>(name);
 }
 
-class Tab2ScreenRoute extends _i1.PageRouteInfo {
-  const Tab2ScreenRoute() : super(name, path: '');
+/// generated route for
+/// [_i9.UserFriendsScreen]
+class UserFriendsRoute extends _i12.PageRouteInfo<void> {
+  const UserFriendsRoute({List<_i12.PageRouteInfo>? children})
+      : super(
+          UserFriendsRoute.name,
+          initialChildren: children,
+        );
 
-  static const String name = 'Tab2ScreenRoute';
+  static const String name = 'UserFriendsRoute';
+
+  static const _i12.PageInfo<void> page = _i12.PageInfo<void>(name);
 }
 
-class Tab3ScreenRoute extends _i1.PageRouteInfo {
-  const Tab3ScreenRoute() : super(name, path: '');
+/// generated route for
+/// [_i10.UserScreen]
+class UserRoute extends _i12.PageRouteInfo<void> {
+  const UserRoute({List<_i12.PageRouteInfo>? children})
+      : super(
+          UserRoute.name,
+          initialChildren: children,
+        );
 
-  static const String name = 'Tab3ScreenRoute';
+  static const String name = 'UserRoute';
+
+  static const _i12.PageInfo<void> page = _i12.PageInfo<void>(name);
+}
+
+/// generated route for
+/// [_i11.UserDetailsScreen]
+class UserDetailsRoute extends _i12.PageRouteInfo<void> {
+  const UserDetailsRoute({List<_i12.PageRouteInfo>? children})
+      : super(
+          UserDetailsRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'UserDetailsRoute';
+
+  static const _i12.PageInfo<void> page = _i12.PageInfo<void>(name);
 }

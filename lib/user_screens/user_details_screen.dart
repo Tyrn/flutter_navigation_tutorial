@@ -3,6 +3,7 @@ import 'package:auto_route/auto_route.dart';
 
 import '../routes.gr.dart';
 
+@RoutePage()
 class UserDetailsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -21,7 +22,7 @@ class UserDetailsScreen extends StatelessWidget {
               height: 16,
             ),
             ElevatedButton(
-              onPressed: () => context.router.navigate(UserProfileScreenRoute()),
+              onPressed: () => context.router.navigate(const UserProfileRoute()),
               child: Text(
                 'Back to user',
               ),

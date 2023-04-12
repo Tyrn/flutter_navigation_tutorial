@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:navigation_auto_route_tutorial/routes.gr.dart';
 import 'package:auto_route/auto_route.dart';
 
+@RoutePage()
 class SignupScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -20,7 +21,7 @@ class SignupScreen extends StatelessWidget {
               height: 16,
             ),
             ElevatedButton(
-              onPressed: () => context.router.navigate(LoginScreenRoute()),
+              onPressed: () => context.router.navigate(const LoginRoute()),
               child: Text(
                 'Go to LoginScreen',
               ),
@@ -29,7 +30,7 @@ class SignupScreen extends StatelessWidget {
               height: 16,
             ),
             ElevatedButton(
-              onPressed: () => context.router.replace(UserScreenRoute()),
+              onPressed: () => context.router.replace(const UserRoute()),
               child: Text(
                 'Signup (UserScreen)',
               ),

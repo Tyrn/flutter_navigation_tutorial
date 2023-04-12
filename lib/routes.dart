@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:navigation_auto_route_tutorial/routes.gr.dart';
 
 import 'group_screens/tab1_screen.dart';
 import 'group_screens/group_screen.dart';
@@ -11,79 +12,86 @@ import 'user_screens/user_screen.dart';
 import 'login_screens/login_screen.dart';
 import 'login_screens/signup_screen.dart';
 
-@AdaptiveAutoRouter(
-//  replaceInRouteName: 'Page,Route,Screen',
-//  replaceInRouteName: 'Page,Route',
-  routes: <AutoRoute>[
-    //authentication routes
-    AutoRoute(
-      initial: true,
-      path: '/login',
-      page: LoginScreen,
-      children: [
-        RedirectRoute(path: '*', redirectTo: ''),
-      ],
-    ),
-    AutoRoute(
-      path: '/signup',
-      page: SignupScreen,
-      children: [
-        RedirectRoute(path: '*', redirectTo: ''),
-      ],
-    ),
+@AutoRouterConfig(replaceInRouteName: 'Screen,Route')
+class AppRouter extends $AppRouter {
+  @override
+  RouteType get defaultRouteType => RouteType.adaptive();
 
-    //user routes with a nested router
-    AutoRoute(
-      path: '/user',
-      page: UserScreen,
-      children: [
-        AutoRoute(path: '', page: UserProfileScreen),
-        AutoRoute(path: 'details/*', page: UserDetailsScreen),
-        AutoRoute(path: 'friends/*', page: UserFriendsScreen),
-        groupTabRouter,
+  @override
+  List<AutoRoute> get routes => [
+        /// routes go here
+        AutoRoute(
+          path: '/', // Used to be '/login'.
+          page: LoginRoute.page,
+          children: [
+            RedirectRoute(path: '*', redirectTo: ''),
+          ],
+        ),
+        AutoRoute(
+          path: '/signup',
+          page: SignupRoute.page,
+          children: [
+            RedirectRoute(path: '*', redirectTo: ''),
+          ],
+        ),
+
+        //user routes with a nested router
+        AutoRoute(
+          path: '/user',
+          page: UserRoute.page,
+          children: [
+            AutoRoute(path: '', page: UserProfileRoute.page),
+            AutoRoute(path: 'details/*', page: UserDetailsRoute.page),
+            AutoRoute(path: 'friends/*', page: UserFriendsRoute.page),
+            groupTabRouter,
+            // redirect all other paths
+            RedirectRoute(path: '*', redirectTo: ''),
+          ],
+        ),
+
         // redirect all other paths
-        RedirectRoute(path: '*', redirectTo: ''),
-      ],
-    ),
-
-    // redirect all other paths
-    RedirectRoute(path: '*', redirectTo: '/login'),
-    //Home
-  ],
-)
-class $AppRouter {}
+        RedirectRoute(path: '*', redirectTo: '/login'),
+        //Home
+      ];
+}
 
 //nested group route with a tab router
-const groupTabRouter = AutoRoute(
+final groupTabRouter = AutoRoute(
   path: 'group/:id',
-  page: GroupScreen,
+  page: GroupRoute.page,
   children: [
     AutoRoute(
       path: 'tab1',
-      name: 'GroupTab1Router',
-      page: EmptyRouterPage,
+      page: GroupTab1Router.page,
       children: [
-        AutoRoute(path: '', page: Tab1Screen),
+        AutoRoute(path: '', page: Tab1Route.page),
         RedirectRoute(path: '*', redirectTo: ''),
       ],
     ),
     AutoRoute(
       path: 'tab2',
-      name: 'GroupTab2Router',
-      page: EmptyRouterPage,
+      page: GroupTab2Router.page,
       children: [
-        AutoRoute(path: '', page: Tab2Screen),
+        AutoRoute(path: '', page: Tab2Route.page),
         RedirectRoute(path: '*', redirectTo: ''),
       ],
     ),
     AutoRoute(
       path: 'tab3',
-      name: 'GroupTab3Router',
-      page: EmptyRouterPage,
+      page: GroupTab3Router.page,
       children: [
-        AutoRoute(path: '', page: Tab3Screen),
+        AutoRoute(path: '', page: Tab3Route.page),
         RedirectRoute(path: '*', redirectTo: ''),
       ],
     ),
   ],
 );
+
+@RoutePage(name: 'GroupTab1Router')
+class GroupTab1RouterPage extends AutoRouter {}
+
+@RoutePage(name: 'GroupTab2Router')
+class GroupTab2RouterPage extends AutoRouter {}
+
+@RoutePage(name: 'GroupTab3Router')
+class GroupTab3RouterPage extends AutoRouter {}

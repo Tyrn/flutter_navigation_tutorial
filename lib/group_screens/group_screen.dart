@@ -3,6 +3,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:navigation_auto_route_tutorial/routes.gr.dart';
 
+@RoutePage()
 class GroupScreen extends StatelessWidget {
   final String id;
   const GroupScreen({@PathParam('id') required this.id}) : super();
@@ -20,13 +21,15 @@ class GroupScreen extends StatelessWidget {
           GroupTab3Router(),
         ],
         duration: const Duration(milliseconds: 400),
-        builder: (context, child, animation) {
+        transitionBuilder: (context, child, animation) => FadeTransition(
+          opacity: animation,
+          // the passed child is technically our animated selected-tab page
+          child: child,
+        ),
+        builder: (context, child) {
           final tabsRouter = context.tabsRouter;
           return Scaffold(
-            body: FadeTransition(
-              opacity: animation,
-              child: child,
-            ),
+            body: child,
             bottomNavigationBar: buildBottomNavigationBar(context, tabsRouter),
           );
         },

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:navigation_auto_route_tutorial/routes.gr.dart';
+import 'package:navigation_auto_route_tutorial/routes.dart';
 
 void main() {
   runApp(MyApp());
