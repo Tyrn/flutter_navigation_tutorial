@@ -50,7 +50,7 @@ class AppRouter extends $AppRouter {
         ),
 
         // redirect all other paths
-        RedirectRoute(path: '*', redirectTo: '/login'),
+        RedirectRoute(path: '*', redirectTo: '/'),
         //Home
       ];
 }
